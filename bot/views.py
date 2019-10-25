@@ -7,7 +7,10 @@ from linebot.models import (
     MessageEvent,
     TextMessage,
     TextSendMessage,
+    LocationMessage,
 )
+import scrape as sc
+import urllib3.request
 import os
 
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
@@ -41,15 +44,15 @@ def handle_message(event):
 #   else:
 #       line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
 #
-# @handler.add(MessageEvent, message=LocationMessage)
-# def handle_location(event):
-#     text = event.message.address
-#
-#     result = sc.get_weather_from_location(text)
-#     line_bot_api.reply_message(
-#         event.reply_token,
-#         TextSendMessage(text=result)
-#     )
+@handler.add(MessageEvent, message=LocationMessage)
+def handle_location(event):
+    text = event.message.address
+
+    result = sc.get_weather_from_location(text)
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=result)
+    )
 
 
 # オウム返し
