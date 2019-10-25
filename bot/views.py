@@ -9,7 +9,7 @@ from linebot.models import (
     TextSendMessage,
     LocationMessage
 )
-import scrape as sc
+from . import scrape as sc
 import urllib3.request
 import os
 
