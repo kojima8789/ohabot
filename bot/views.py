@@ -33,7 +33,7 @@ def callback(request):
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
   text = event.message.text
-  if '位置情報' in text:
+  if '天気' in text:
     line_bot_api.reply_message(
       event.reply_token,
       [
