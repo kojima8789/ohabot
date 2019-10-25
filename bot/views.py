@@ -27,6 +27,28 @@ def callback(request):
         HttpResponseForbidden()
     return HttpResponse('OK', status=200)
 
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+  text = event.message.text
+  if '位置情報' in text:
+    line_bot_api.reply_message(
+      event.reply_token,
+      [
+      TextSendMessage(text='位置情報を教えてください。'),
+      TextSendMessage(text='line://nv/location')
+      ]
+    )
+
+@handler.add(MessageEvent, message=LocationMessage)
+def handle_location(event):
+    text = event.message.address
+
+    result = sc.get_weather_from_location(text)
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=result)
+    )
+
 
 # オウム返し
 @handler.add(MessageEvent, message=TextMessage)
