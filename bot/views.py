@@ -41,6 +41,8 @@ def handle_message(event):
       TextSendMessage(text='line://nv/location')
       ]
     )
+  else:
+      line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location(event):
@@ -54,9 +56,9 @@ def handle_location(event):
 
 
 # オウム返し
-@handler.add(MessageEvent, message=TextMessage)
-def handle_text_message(event):
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
+# @handler.add(MessageEvent, message=TextMessage)
+# def handle_text_message(event):
+#     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
 
 if __name__ == "__main__":
         port = int(os.getenv("PORT", 5000))
