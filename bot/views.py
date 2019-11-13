@@ -46,9 +46,9 @@ def handle_message(event):
       msg = we.get_weather_from_api()
       line_bot_api.reply_message(
           event.reply_token,
-          [
-          TextSendMessage(msg)
-          ]
+
+          TextSendMessage(msg.data)
+          
     )
   else:
       line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
