@@ -23,21 +23,13 @@ def get_weather_from_api():
         data = json.loads(r.text)
 
         # 結果を出力
-        # print("+ 都市=", data["name"])
-        # print("| 天気=", data["weather"][0]["description"])
-        # print("| 最低気温=", k2c(data["main"]["temp_min"]))
-        # print("| 最高気温=", k2c(data["main"]["temp_max"]))
-        # print("| 湿度=", data["main"]["humidity"])
-        # print("| 気圧=", data["wind"]["deg"])
-        # print("| 風速度=", data["wind"]["speed"])
-        # print("")
-    　　msg += "都市:"+ data["name"]+"\n"
-   　　 msg += " 天気:"+ data["weather"][0]["description"]+"\n"
-    　　msg += " 最低気温="+ str(k2c(data["main"]["temp_min"]))+"\n"
-    　　msg += " 最高気温="+ str(k2c(data["main"]["temp_max"]))+"\n"
-   　　 msg += " 湿度="+ str(data["main"]["humidity"])+"\n"
-   　　 msg += " 気圧="+ str(data["main"]["pressure"])+"\n"
-   　　 msg += " 風向き="+ str(data["wind"]["deg"])+"\n"
-   　　 msg += " 風速度="+ str(data["wind"]["speed"])+"\n\n"
+        print("+ 都市=", data["name"])
+        print("| 天気=", data["weather"][0]["description"])
+        print("| 最低気温=", k2c(data["main"]["temp_min"]))
+        print("| 最高気温=", k2c(data["main"]["temp_max"]))
+        print("| 湿度=", data["main"]["humidity"])
+        print("| 気圧=", data["wind"]["deg"])
+        print("| 風速度=", data["wind"]["speed"])
+        print("")
 
 
