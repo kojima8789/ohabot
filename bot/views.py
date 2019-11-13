@@ -42,13 +42,14 @@ def handle_message(event):
       TextSendMessage(text='line://nv/location')
       ]
     )
-  elif '東京の空' in text:
+  elif 'トーキョー' in text:
       weather = we.get_weather_from_api(text)
       line_bot_api.reply_message(
           event.reply_token,
+          [
           TextSendMessage(text=weather)
-
-
+          ]
+    )
   else:
       line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
 
