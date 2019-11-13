@@ -47,7 +47,7 @@ def handle_message(event):
         line_bot_api.reply_message(
               event.reply_token,
 
-              TextSendMessage(text=weather),
+              TextSendMessage(text=weather)
               # TextSendMessage(text="+ 都市=", data["name"]),
               # TextSendMessage(text="| 天気=", data["weather"][0]["description"]),
               # TextSendMessage(text="| 最低気温=", k2c(data["main"]["temp_min"])),
