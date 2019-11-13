@@ -24,13 +24,13 @@ def get_weather_from_api():
 
         # 結果を出力
         weather=("+ 都市=", data["name"])
-                ("| 天気=", data["weather"][0]["description"])
-                ("| 最低気温=", k2c(data["main"]["temp_min"]))
-                ("| 最高気温=", k2c(data["main"]["temp_max"]))
-                ("| 湿度=", data["main"]["humidity"])
-                ("| 気圧=", data["main"]["pressure"])
-                #     print("| 風向き=", data["wind"]["deg"])
-                ("| 風速度=", data["wind"]["speed"])
-                ("")
+        weather=("| 天気=", data["weather"][0]["description"])
+        weather=("| 最低気温=", k2c(data["main"]["temp_min"]))
+        weather=("| 最高気温=", k2c(data["main"]["temp_max"]))
+        weather=("| 湿度=", data["main"]["humidity"])
+        weather=("| 気圧=", data["main"]["pressure"])
+        #     print("| 風向き=", data["wind"]["deg"])
+        weather=("| 風速度=", data["wind"]["speed"])
+        weather=("")
 
         return weather
