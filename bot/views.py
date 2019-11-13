@@ -47,9 +47,9 @@ def handle_message(event):
       line_bot_api.reply_message(
           event.reply_token,
 
-          TextSendMessage(text="+ 都市=", data["name"])
-          TextSendMessage(text="| 天気=", data["weather"][0]["description"])
-          
+          TextSendMessage("+ 都市=", data["name"])
+          TextSendMessage("| 天気=", data["weather"][0]["description"])
+
     )
   else:
       line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
