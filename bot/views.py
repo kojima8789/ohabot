@@ -48,14 +48,14 @@ def handle_message(event):
         event.reply_token,
         [
         # TextSendMessage(text=weather),
-        # TextSendMessage(text='+ 都市=',data['name']),
+        TextSendMessage(msg += "都市:"+ data["name"]+"\n"),
         # TextSendMessage(text="| 天気=", data["weather"][0]["description"]),
         # TextSendMessage(text="| 最低気温=", k2c(data["main"]["temp_min"])),
         # TextSendMessage(text="| 最高気温=", k2c(data["main"]["temp_max"])),
         # TextSendMessage(text="| 湿度=", data["main"]["humidity"]),
         # TextSendMessage(text="| 気圧=", data["wind"]["deg"]),
         # TextSendMessage(text="| 風速度=", data["wind"]["speed"]),
-        TextSendMessage(text=data)
+        # TextSendMessage(text='')
         ]
         )
     else:
