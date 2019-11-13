@@ -43,7 +43,7 @@ def handle_message(event):
         ]
         )
     elif 'トーキョー' in text:
-        weather = we.get_weather_from_api()
+        data = we.get_weather_from_api()
         line_bot_api.reply_message(
         event.reply_token,
         [
@@ -55,7 +55,7 @@ def handle_message(event):
         # TextSendMessage(text="| 湿度=", data["main"]["humidity"]),
         # TextSendMessage(text="| 気圧=", data["wind"]["deg"]),
         # TextSendMessage(text="| 風速度=", data["wind"]["speed"]),
-        TextSendMessage("")
+        TextSendMessage('')
         ]
         )
     else:
