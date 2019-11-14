@@ -44,7 +44,7 @@ def handle_message(event):
         ]
         )
     elif 'トーキョー' in text:
-        data = we.get_weather_from_api()
+        data = we.get_weather_from_api(d)
         line_bot_api.reply_message(
         event.reply_token,
 
