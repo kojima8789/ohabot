@@ -44,11 +44,12 @@ def handle_message(event):
         )
     elif 'トーキョー' in text:
         we.get_weather_from_api()
+        date = data
         line_bot_api.reply_message(
         event.reply_token,
 
 
-        TextSendMessage(text='"+ 都市=", data["name"]'),
+        TextSendMessage(text="+ 都市=", date["name"])
               # TextSendMessage(text="| 天気=", data["weather"][0]["description"]),
               # TextSendMessage(text="| 最低気温=", k2c(data["main"]["temp_min"])),
               # TextSendMessage(text="| 最高気温=", k2c(data["main"]["temp_max"])),
