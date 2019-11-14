@@ -34,7 +34,7 @@ def callback(request):
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
-    data = we.get_weather_from_api()
+
     if '天気' in text:
         line_bot_api.reply_message(
         event.reply_token,
@@ -44,6 +44,7 @@ def handle_message(event):
         ]
         )
     elif 'トーキョー' in text:
+        data = we.get_weather_from_api()
         line_bot_api.reply_message(
         event.reply_token,
 
