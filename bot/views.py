@@ -44,12 +44,9 @@ def handle_message(event):
         ]
         )
     elif 'トーキョー' in text:
-
-
         line_bot_api.reply_message(
         event.reply_token,
-
-
+        [
         TextSendMessage(text="+ 都市=", date["name"])
               # TextSendMessage(text="| 天気=", data["weather"][0]["description"]),
               # TextSendMessage(text="| 最低気温=", k2c(data["main"]["temp_min"])),
@@ -58,7 +55,7 @@ def handle_message(event):
               # TextSendMessage(text="| 気圧=", data["wind"]["deg"]),
               # TextSendMessage(text="| 風速度=", data["wind"]["speed"]),
               # TextSendMessage(text="")
-
+        ]
         )
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
