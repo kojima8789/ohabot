@@ -11,7 +11,8 @@ def get_yahoo_news():
     for sponsor in sponsors:
         if 'pickup' in sponsor['href']:
             text=(sponsor.text)
-            url=(sponsor['href'])
-            print(text,url)
+            return text
+            # url=(sponsor['href'])
+            # print(text,url)
 if __name__ == '__main__':
     get_yahoo_news()
