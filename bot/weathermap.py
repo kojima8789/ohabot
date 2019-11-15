@@ -23,7 +23,7 @@ def get_weather_from_api():
         data = json.loads(r.text)
 
         # 結果を出力
-        # d = ("+ 都市=", data["name"])
+        print("+ 都市=", str(data)["name"])
         # print("| 天気=", data["weather"][0]["description"])
         # print("| 最低気温=", k2c(data["main"]["temp_min"]))
         # print("| 最高気温=", k2c(data["main"]["temp_max"]))
