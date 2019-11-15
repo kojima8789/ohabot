@@ -44,19 +44,11 @@ def handle_message(event):
         ]
         )
     if '東京' in text:
-        msg = we.get_weather_from_api()
+        msg = we.get_weather_from_api(text)
         line_bot_api.reply_message(
         event.reply_token,
 
-
-        TextSendMessage(msg += "都市:" + data["name"] + "\n"),
-        TextSendMessage(msg += " 天気:" + data["weather"][0]["description"] + "\n"),
-        TextSendMessage(msg += " 最低気温=" + str(k2c(data["main"]["temp_min"])) + "\n"),
-        TextSendMessage(msg += " 最高気温=" + str(k2c(data["main"]["temp_max"])) + "\n"),
-        TextSendMessage(msg += " 湿度=" + str(data["main"]["humidity"]) + "\n"),
-        TextSendMessage(msg += " 気圧=" + str(data["main"]["pressure"]) + "\n"),
-        TextSendMessage(msg += " 風向き=" + str(data["wind"]["deg"]) + "\n"),
-        TextSendMessage(msg += " 風速度=" + str(data["wind"]["speed"]) + "\n\n")
+        TextSendMessage(text=msg)
 
         )
     else:
