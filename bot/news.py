@@ -10,7 +10,7 @@ def get_yahoo_news():
     sponsors = soup.find_all("a")
     for sponsor in sponsors:
         if 'pickup' in sponsor['href']:
-            text=(sponsor.text)
+            text=(sponsor.text,sponsor['href'])
             return text
             # url=(sponsor['href'])
             # print(text,url)
