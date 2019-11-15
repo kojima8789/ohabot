@@ -44,19 +44,19 @@ def handle_message(event):
         ]
         )
     if '東京' in text:
-        # msg = we.get_weather_from_api(text)
+        msg = we.get_weather_from_api()
         line_bot_api.reply_message(
         event.reply_token,
 
 
-        TextSendMessage(text=we.get_weather_from_api(text))
-        # TextSendMessage(text="| 天気=", data["weather"][0]["description"]),
-        # TextSendMessage(text="| 最低気温=", k2c(data["main"]["temp_min"])),
-        # TextSendMessage(text="| 最高気温=", k2c(data["main"]["temp_max"])),
-        # TextSendMessage(text="| 湿度=", data["main"]["humidity"]),
-        # TextSendMessage(text="| 気圧=", data["wind"]["deg"]),
-        # TextSendMessage(text="| 風速度=", data["wind"]["speed"]),
-        # TextSendMessage(text="")
+        TextSendMessage(msg += "都市:" + data["name"] + "\n"),
+        TextSendMessage(msg += " 天気:" + data["weather"][0]["description"] + "\n"),
+        TextSendMessage(msg += " 最低気温=" + str(k2c(data["main"]["temp_min"])) + "\n"),
+        TextSendMessage(msg += " 最高気温=" + str(k2c(data["main"]["temp_max"])) + "\n"),
+        TextSendMessage(msg += " 湿度=" + str(data["main"]["humidity"]) + "\n"),
+        TextSendMessage(msg += " 気圧=" + str(data["main"]["pressure"]) + "\n"),
+        TextSendMessage(msg += " 風向き=" + str(data["wind"]["deg"]) + "\n"),
+        TextSendMessage(msg += " 風速度=" + str(data["wind"]["speed"]) + "\n\n")
 
         )
     else:
