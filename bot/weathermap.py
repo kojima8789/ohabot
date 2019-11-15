@@ -34,7 +34,7 @@ def get_weather_from_api():
         msg += " 風向き=" + str(data["wind"]["deg"]) + "\n"
         msg += " 風速度=" + str(data["wind"]["speed"]) + "\n\n"
 
-        print(msg)
+        return msg
 
 
 
