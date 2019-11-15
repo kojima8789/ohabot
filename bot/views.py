@@ -11,6 +11,7 @@ from linebot.models import (
 )
 from . import scrape as sc
 from . import weathermap as we
+from . import news as ne
 import urllib3.request
 import os
 
@@ -34,7 +35,9 @@ def callback(request):
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
-    ms = we.get_weather_from_api()
+    msg = we.get_weather_from_api()
+    news = ne.get_yahoo_news()
+
     if '天気' in text:
         line_bot_api.reply_message(
         event.reply_token,
@@ -48,9 +51,17 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,
 
-        TextSendMessage(text=ms)
+        TextSendMessage(text=msg)
 
         )
+    elif 'ニュース' in text:
+        line_bot_api.reply_message(
+            event.reply_token,
+
+            TextSendMessage(text=news)
+
+        )
+
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
 
