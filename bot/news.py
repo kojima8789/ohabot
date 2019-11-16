@@ -26,7 +26,7 @@ ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) '\
      'AppleWebKit/537.36 (KHTML, like Gecko) '\
      'Chrome/67.0.3396.99 Safari/537.36 '
 
-def get_yahoo_news(word):
+def get_yahoo_news():
     req = urllib.request.Request(url, headers={'User-Agent': ua})
     html = urllib.request.urlopen(req)
     soup = BeautifulSoup(html, "html.parser")

@@ -36,7 +36,7 @@ def callback(request):
 def handle_message(event):
     text = event.message.text
     msg = we.get_weather_from_api()
-    news = ne.get_yahoo_news(word)
+    news = ne.get_yahoo_news()
 
     if '天気' in text:
         line_bot_api.reply_message(
