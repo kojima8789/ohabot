@@ -1,5 +1,5 @@
-# import requests
-# from bs4 import BeautifulSoup
+import requests
+from bs4 import BeautifulSoup
 #
 #
 # def get_yahoo_news():
@@ -44,5 +44,5 @@ def get_yahoo_news(word):
     if count == 0:
         list.append("記事が見つかりませんでした！！")
 
-    result = '\n'.join(list)
-    return result
+    ns = '\n'.join(list)
+    return ns
